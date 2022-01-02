@@ -1,0 +1,31 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.bggradient {
+    background-image: linear-gradient(to bottom right,rgb(72, 72, 72), lightgrey);
+}
+
+.contentarea { 
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+.placeholder {
+    text-align: center;
+    width: auto;
+    font-weight: 700;
+    font-size: 1.1em;
+    transform: rotate(-.77deg);
+    
+}
+
+.subtext {
+    font-size: .8em;
+    font-weight: 210;
+    height:3vh;
+    text-align:center;
+}
