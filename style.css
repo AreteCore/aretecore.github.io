@@ -29,3 +29,8 @@
     height:3vh;
     text-align:center;
 }
+
+img {
+    width: 150px;
+    border-radius: 50%;
+}
