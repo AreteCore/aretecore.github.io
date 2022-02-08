@@ -21,8 +21,9 @@ body {
 }
 
 img.me {
-    width: 20%;
+    width: 10em;
     border-radius: 50%;
+    margin-bottom:0;
 }
 
 .placeholder {
@@ -37,14 +38,27 @@ h1.tagline {
     margin-bottom:10;
 }
 
+div#myname {
+    transform: rotate(4.77deg);
+    position:relative;
+    display:block;
+    left:4em;
+    bottom:-14em;
+    font-weight:normal;
+    font-size:12px
+}
+span#code {
+    font-weight:120;
+}
+
+span#code:hover {
+    color:chartreuse;
+}
 sub.yay {
-    position:absolute;
     font-weight:500; 
-    font-size:10px; 
-    bottom:-10%; 
-    /* top:110%; */
-    right:30%;
-    font-size:8px;
+    right:-20em;
+    bottom:1em;
+    font-size:.5em;
 }
 
 sub.yay:hover {
