@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Object Model</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Temperature converter</h1>
+    <div>
+
+        <div>
+            <h4>Celsius: <span id="celsius-display">0</span> degrees.</h4>
+        </div>
+        <div>
+            <h4>Fahrenheit: <span id="fahrenheit-display">32</span> degrees.</h4>
+        </div>
+    </div>
+    <div>
+        <form>
+            <div>
+                <label class="newfont" for="temperature-input">Enter your temperature:</label>
+                <input type="number" id="temperature-input" name="temperature" min="-10000" max="10000">
+            </div>
+
+        </form>
+    </div>
+    <div>
+        <button id="celsius">Convert to Celsius</button>
+        <button id="fahrenheit">Convert to Fahrenheit</button>
+        <!-- <button id="testing">testing</button> -->
+    </div>
+
+    <div>
+        
+    </div>
+</body>
+
+</html>
