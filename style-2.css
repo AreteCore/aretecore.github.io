@@ -12,14 +12,6 @@ body {
     background-image: linear-gradient(to bottom right,rgb(46, 46, 46), rgb(142, 142, 142));
 }
 
-#forden {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width:200px;
-    height: 200px;    
-  }
-
 .contentarea { 
     display:flex;
     flex-flow: column nowrap;
