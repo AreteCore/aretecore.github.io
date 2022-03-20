@@ -93,3 +93,18 @@ a:hover {
     color:chartreuse;
     background-color:black;
 }
+ul {
+    list-style-type: none;
+    padding: 0;
+    list-style-position: outside;
+  }
+li {
+    padding: 0px;
+    margin: .2em;
+    margin-left: -1em;
+}
+
+li::before {
+    padding: 20px;
+    content: "🤖";
+  }
