@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Lab Multi-Day</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="js/multiday-app.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bggradient">
+    <div class="contentarea">
+        <div class="main">
+            <div class="weather">
+                <h3 class="tagline">Weather API from <a
+                        href="https://openweathermap.org/api">openweathermaps.org</a><br>Get the weather for your city!
+                </h3>
+                <!-- <div>
+                    <button id="test1">test1</button>
+                    <button id="test2">test2</button>
+                    <button id="test3">test3</button>
+                    <button id="test4">test4</button>
+                    <button id="test5">test5</button>
+                </div> -->
+                <div class="days-div">
+                    <label for="days">How many days of weather do you want?</label>
+                    <select name="days-list" id="days">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="bar">
+                    <input type="text" placeholder="Your City" value="yuma">
+                    <button id="search">Search</button>
+                </div>
+                <aside>
+                    <div class="multi-day-results">
+                        <div class="left sub">
+                            <div>Weather for:</div>
+                            <div>Temperature:</div>
+                            <div>Feels like:</div>
+                            <div>Weather:</div>
+                        </div>
+                        <div class="right sub">
+                            <div id="city"></div>
+                            <div id="temp"></div>
+                            <div id="feels"></div>
+                            <div id="weather"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+</body>
+
+</html>
