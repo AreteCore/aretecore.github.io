@@ -58,15 +58,55 @@ body {
     padding-left: 2em;
     height: 80px;
     display: flex;
+    flex-flow: row nowrap;
     margin-bottom: 10px;
 }
 
+.topbar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    width: calc(100%-150px);
+    padding: .8em;
+    justify-content: space-around;
+    margin-left: 1em;
+}
+
+#quote {
+    font-size: .8em;
+    font-style:italic;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 10px;
+    padding:.2em;
+    font-size: .8em;
+    gap: 20px;
+    font-weight: bold;
+}
 /* .main {
     padding: 2em;
     border: 1px dashed black;
     
 } */
+a {
+    color:white;
+    text-decoration: none;
+    font-weight: bolder;
+}
 
+a:visited {
+    color:lightgrey;
+}
+
+a:hover {
+    color:chartreuse;
+    background-color:black;
+}
 .bio {
     grid-area: bio;
     border: .2px solid rgb(87, 87, 87);
@@ -76,8 +116,9 @@ body {
     display:flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2em;
+    padding: 4em 0 4em 0;
     gap: 2em;
+    height: max-content;
 }
 .item {
     min-width: 60%;
@@ -101,7 +142,7 @@ body {
 }
 .frame {
     grid-area: frame;
-    padding: 2em;
+    padding-left: .5em;
 }
 img.me {
     width: 8em;
@@ -131,11 +172,10 @@ img.me {
     padding: 6px 12px 6px 12px;
 }
 
-
 h1.tagline {
     transform: rotate(-.77deg);
     margin-bottom:10;
-    width: 500px;
+    width: max-content;
 }
 
 div#myname {
@@ -143,9 +183,17 @@ div#myname {
     position:relative;
     display:block;
     left:3em;
-    bottom:-14em;
+    bottom:5em;
     font-weight:normal;
-    font-size:12px
+    font-size:12px;
+    height: 0;
+}
+
+div.title-block {
+    display:flex;
+    flex-flow:column;
+    align-items:end;
+    width:max-content;
 }
 span#code {
     font-weight:120;
@@ -154,9 +202,9 @@ span#code {
 span#code:hover {
     color:chartreuse;
 }
+
 sub.yay {
     font-weight:500; 
-    right:-20em;
     bottom:1em;
     font-size:.5em;
 }
@@ -172,18 +220,7 @@ sub.yay:hover {
     text-align:center;
 }
 
-a {
-    color:white;
-}
 
-a:visited {
-    color:lightgrey;
-}
-
-a:hover {
-    color:chartreuse;
-    background-color:black;
-}
 ul {
     list-style-type: none;
     padding: 0;
@@ -198,4 +235,14 @@ li {
 li::before {
     padding: 20px;
     content: "🤖";
+  }
+
+  .inactive {
+    visibility: hidden;
+    height:0;
+  }
+
+  .active {
+      visibility: visible;
+      height: auto;
   }
