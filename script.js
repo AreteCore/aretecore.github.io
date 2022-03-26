@@ -31,8 +31,29 @@ $(document).ready(function () {
 
 });
 
+$("#youtube-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#youtube").toggleClass("inactive")
+})
+$("#temp-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#temp").toggleClass("inactive")
+})
+$("#rock-paper-scissors-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#rock-paper-scissors").toggleClass("inactive")
+})
+$("#weather-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#weather").toggleClass("inactive")
+})
+$("#nasa-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#nasa").toggleClass("inactive")
+})
 
-
+const $nasaButton = $("#nasa-button")
+$nasaButton.on("click", () => {})
 {
     $.ajax(`https://api.nasa.gov/planetary/apod?count=3&api_key=9jBnAysOQFWacuExLUatq5NmxXIgdJqdleT3ibXP`).then((data) => {
         // console.log(data)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA API</title>
+    <title>aretecore</title>
     <!-- fixing the default css with normalize.css -->
     <!-- <link rel="stylesheet" href="normalize.css"> -->
     <!-- linking some google fonts  -->
@@ -25,10 +25,26 @@
 <body class="bggradient">
     <div class="contentarea">
         <div class="main">
-            <div class="nasa">
-                <div><button id="nasa-button">Click to Get 3 Random NASA Astronomy Pics Of The Day!</button></div>
-                <p>You can click on them for the extra large versions!</p>
-                <div id="nasa-photos">
+            <div class="event">
+                <p>Choose a radius of events to show for your area:</p>
+                <select name="radius_select" id="radius">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <span> miles</span>
+                <button id="event-button">Show me events!</button>
+                <span>in the next </span>
+                <select name="time_window" id="days-away">
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                </select>
+                <span> days.</span>
+                <div id="events">
                 </div>
             </div>
         </div>

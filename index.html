@@ -32,11 +32,11 @@
         <div class="topbar">
             <div id="quote"></div>
             <div class="links">
-                <a href="#">🎥 YouTube: CLI in 3mins</a>
-                <a href="#">🌡 Temperature Converter</a>
-                <a href="#">🪨 Rock, Paper, Scissors</a>
-                <a href="#">🌧 Openweathermaps API!</a>
-                <a href="#">👽 NASA API!</a>
+                <a id="youtube-link" href="#">🎥 YouTube: CLI in 3mins</a>
+                <a id="temp-link" href="#">🌡 Temperature Converter</a>
+                <a id="rock-paper-scissors-link" href="#">🪨 Rock, Paper, Scissors</a>
+                <a id="weather-link" href="#">🌧 Openweathermaps API!</a>
+                <a id="nasa-link" href="#">👽 NASA API!</a>
             </div>
         </div>
         <div class="dadjoke">
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="frame">
-            <div class="inactive">
+            <!-- <div class="old inactive">
                 <div class="banners">
                     <p>Here is a list of stuff I have been working on.</p>
                 </div>
@@ -102,18 +102,18 @@
 
                 <sub>(it is a short list)</sub>
                 <img src="./img/toasty.png" id="forden" alt="Dan Forden">
-            </div>
-            <div id= "youtube" class="inactive">
-                <iframe style="position: relative; height: 80%; width: 80%;" src="https://www.youtube.com/embed/v5tKk4ye9nY"
+            </div> -->
+            <div id="youtube" class="inactive">
+                <iframe style="position: relative; height: 90%; width: 100%; border-radius: 20px;" src="https://www.youtube.com/embed/v5tKk4ye9nY"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
             <div id="temp" class="inactive">
-                <iframe style="position: relative; height: 100%; width: 100%;" src="./tempconverter/index.html" frameborder="0"></iframe>
+                <iframe style="position: relative; height: 90%; width: 100%; border-radius: 20px;" src="./tempconverter/index.html" frameborder="0"></iframe>
             </div>
             <div id="rock-paper-scissors" class="inactive">
-                <p class="codepen" data-height="100%" data-default-tab="html,result" data-slug-hash="podEQLV" data-user="aretecore" style="position: relative; height: 100%; width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <p class="codepen" data-height="70%" data-default-tab="html,result" data-slug-hash="podEQLV" data-user="aretecore" style="border-radius: 20px; position: relative; height: 100%; width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
                     <span>See the Pen <a href="https://codepen.io/aretecore/pen/podEQLV">
                     Scalpellus v2</a> by Richard (<a href="https://codepen.io/aretecore">@aretecore</a>)
                     on <a href="https://codepen.io">CodePen</a>.</span>
@@ -121,10 +121,10 @@
                   <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
             </div>
             <div id="weather" class="inactive">
-                <iframe src="./weather-api/index.html" style="position: relative; height: 100%; width: 100%;" frameborder="3"></iframe>
+                <iframe src="./weather-api/index.html" style="position: relative; height: 70%; width: 100%; overflow:scroll; border-radius: 20px;" frameborder="1"></iframe>
             </div>
             <div id="nasa" class="inactive">
-                <iframe src="./nasa-api/nasa.html" style="position: relative; height: 100%; width: 100%;" frameborder="0"></iframe>
+                <iframe src="./nasa-api/nasa.html" style="position: relative; height: 70%; width: 100%; overflow:scroll; border-radius: 20px;" frameborder="1"></iframe>
             </div>
 
         </div>
