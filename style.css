@@ -142,7 +142,7 @@ a:hover {
 }
 .frame {
     grid-area: frame;
-    padding:0 .5em 0 .5em;
+    /* padding:0 .5em 0 .5em; */
 }
 
 img.me {
@@ -243,4 +243,7 @@ li::before {
     height:0;
   }
 
+  #home {
+      padding-left: 1em;
+  }
   

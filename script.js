@@ -5,6 +5,10 @@ const $forden = $("#forden")
 // $forden.hide()
 // console.log($forden[0].style)
 
+//matches height to bio
+$(".frame").height($(".bio").outerHeight())
+// $('.frame').css({"maxHeight":$(".bio").height()});
+
 
 $code.on("click", (event) => {
     //play sound
@@ -31,7 +35,14 @@ $(document).ready(function () {
 
 });
 
+$("#home-link").on("click", () => {
+    console.log("youtube bang")
+    $(".frame").children().addClass("inactive")
+    $("#home").toggleClass("inactive")
+})
+
 $("#youtube-link").on("click", () => {
+    console.log("youtube bang")
     $(".frame").children().addClass("inactive")
     $("#youtube").toggleClass("inactive")
 })

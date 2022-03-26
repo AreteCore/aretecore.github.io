@@ -33,6 +33,7 @@ $nasaButton.on("click", () => {
 
 let lat
 let long
+
 //function for geolocation parse
 function success(pos) {
     // console.log('Your current position is:');
@@ -228,13 +229,15 @@ const testObject = {
     ]
 }
 
-
-
+console.log("here is today", Date())
 // click to run this
 $("#event-button").on("click", () => {
     //set radius
     let rad = parseInt($("#radius").val())
 
+// this is the url example from the settings object
+//"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
+    
     //set date today
     const today = new Date()
     const todayString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
@@ -244,7 +247,7 @@ $("#event-button").on("click", () => {
     const daysAway = new Date()
     daysAway.setDate(new Date().getDate() + parseInt($("#days-away").val()))
     const daysAwayString = `${daysAway.getFullYear()}-${daysAway.getMonth() + 1}-${daysAway.getDate()}`
-    // console.log(daysAwayString)
+    // console.log("daysAwayString",daysAwayString)
 
     //this is for the api
     const settings = {
@@ -258,8 +261,7 @@ $("#event-button").on("click", () => {
         }
     }
 
-    // $.ajax(settings).done(function (response) {
-    //     console.log("obj", response);
+    // $.ajax(settings).done(eventResultsPagerator(data)
     // });
 
     
@@ -281,7 +283,10 @@ function eventResultsPagerator(response) {
     tickets_url
     url
     */
-
+    let $masterDiv = $("<div>")
+    $masterDiv.attr("class", "eventStyling")
+    let $eventName = $("<h3>")
+    $eventName.attr("class","event-name")
     // steps
     // iterate over the array
     // if (ticketavailability = false) return
