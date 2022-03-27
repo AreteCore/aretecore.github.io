@@ -1,4 +1,5 @@
 const $code = $("#code")
+const $dadJoke = $("#dadjoke")
 // console.log($code)
 var toasty = new Audio('./wav/toasty.wav');
 const $forden = $("#forden")
@@ -22,6 +23,19 @@ $code.on("click", (event) => {
         // $forden.hide()
         $forden[0].style.visibility = "hidden"
     }, 250)
+})
+
+//dadjoke onclick function
+$dadJoke.on("click", (event) => {
+    $.ajax({
+        url:`https://icanhazdadjoke.com/`,
+        // type: 'POST',
+        headers: {Accept: 'application/json'},
+        processData: false
+    }).then((data) => {
+        // console.log(data.joke)
+        $(".joke").text(data.joke)
+    })
 })
 
 

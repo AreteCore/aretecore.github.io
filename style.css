@@ -245,5 +245,10 @@ li::before {
 
   #home {
       padding-left: 1em;
+      /* padding-top: .5em; */
+  }
+
+  #home h3 {
+      margin: 0;
   }
   

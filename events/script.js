@@ -229,15 +229,14 @@ const testObject = {
     ]
 }
 
-console.log("here is today", Date())
 // click to run this
 $("#event-button").on("click", () => {
     //set radius
     let rad = parseInt($("#radius").val())
 
-// this is the url example from the settings object
-//"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
-    
+    // this is the url example from the settings object
+    //"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
+
     //set date today
     const today = new Date()
     const todayString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
@@ -264,38 +263,74 @@ $("#event-button").on("click", () => {
     // $.ajax(settings).done(eventResultsPagerator(data)
     // });
 
-    
+
 
 })
 
 function eventResultsPagerator(response) {
-    console.log("here ya object sir", response)
-    // response.results is an array
-    // each one has these parts
-    /* 
-    end_date
-    start_date
-    name
-    primary_venue
-    primary_venue.name
-    summary
-    ticket_availability.has_available_tickets //is a bool
-    tickets_url
-    url
-    */
-    let $masterDiv = $("<div>")
-    $masterDiv.attr("class", "eventStyling")
-    let $eventName = $("<h3>")
-    $eventName.attr("class","event-name")
-    // steps
-    // iterate over the array
-    // if (ticketavailability = false) return
-    // else
-    // create a div with class whatever
-    // create component parts and append
+    // console.log("obj", response)
+    for (let element of response.results) {
+        if (element.ticket_availability.has_available_tickets === false) {
+            console.log("nope");
+            return
+        }
+        else {
+            //create container div for event
+            let $eventStyling = $("<div>")
+            $eventStyling.attr("class", "event-styling")
+            
+            //create title h3
+            let $eventName = $("<h3>")
+            $eventName.attr("class", "event-name")
+            $eventName.text(element.name)
+            //append to container
+            $eventStyling.append($eventName)
+            
+            //create venue h5
+            let $eventVenue = $("<h5>")
+            $eventVenue.attr("class", "event-name")
+            $eventVenue.text(element.primary_venue.name)
+            //append to container
+            $eventStyling.append($eventVenue)
 
-    
+            //create dates div
+            let $dates = $("<div>")
+            $dates.text(`Event dates: ${element.start_date} to ${element.end_date}`)
+            $eventStyling.append($dates)
 
+            //create body
+            let $eventBody = $("<div>")
+            $eventBody.attr("class", "event-body")
+            
+            //create url 1
+            let $url1 = $("<div>")
+            $url1.html(`<a href="${element.tickets_url}">Buy tickets here!</a>`)
+            $eventStyling.append($url1)
+            //append url1 to body
+            $eventBody.append($url1)
+
+            //create url 2
+            let $url2 = $("<div>")
+            $url2.html(`<a href="${element.url}">For event information click here.</a>`)
+            $eventStyling.append($url2)
+            //append url2 to body
+            $eventBody.append($url2)
+            
+            //append links
+            $eventStyling.append($eventBody)
+
+            //create summary at the bottom
+            let $div = $("<div>")
+            $div.text(element.summary)
+            $div.attr("class","summary")
+            
+            //append to container
+            $eventStyling.append($div)
+            
+            //append entire thing to main
+            $("#events").append($eventStyling)
+        }
+    }
 }
 
 eventResultsPagerator(testObject)
