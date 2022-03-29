@@ -1,14 +1,11 @@
-//stupid rapidapi link
-//https://rapidapi.com/AndrianaCodes/api/eventbrite-com/
-// deprecated
-// https://www.eventbrite.com/platform/docs/by-location
+//https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html
+//farmers marrket data
 
-// keys
-const eventBriteKey = config.EVENTBRITE_KEY
-//global vars (needed because of getCurrentPosition not being cool at all)
-let lat
-let long
 
+
+
+
+//--------------------------------------------------
 // click to run the whole thing
 $("#event-button").on("click", () => {
     //sets global location variables on click

@@ -76,6 +76,10 @@ $("#nasa-link").on("click", () => {
     $(".frame").children().addClass("inactive")
     $("#nasa").toggleClass("inactive")
 })
+$("#events-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#events").toggleClass("inactive")
+})
 
 const $nasaButton = $("#nasa-button")
 $nasaButton.on("click", () => {})

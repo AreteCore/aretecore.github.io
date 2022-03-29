@@ -19,6 +19,8 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
+    <!-- api keys config  -->
+    <script type='text/javascript' src='config.js' defer></script>
     <!-- here is my javascript -->
     <script src="script.js" defer></script>
 </head>
@@ -38,6 +40,7 @@
                 <a id="rock-paper-scissors-link" href="#">🪨 Rock, Paper, Scissors</a>
                 <a id="weather-link" href="#">🌧 Openweathermaps API!</a>
                 <a id="nasa-link" href="#">👽 NASA API!</a>
+                <a id="events-link" href="#">🎤 EventBrite API!</a>
             </div>
         </div>
         <div class="dadjoke">
@@ -111,7 +114,7 @@
                 <br>
                 <button id="dadjoke">BUT FIRST, A TERRIBLE JOKE!</button> <span>(Uses the dad joke API)</span>
                 <br>
-                <br>    
+                <br>
                 <h3 class="joke"></h3>
             </div>
             <div id="youtube" class="inactive">
@@ -141,6 +144,11 @@
             </div>
             <div id="nasa" class="inactive">
                 <iframe src="./nasa-api/nasa.html"
+                    style="position: relative; height: 100%; width: 100%; overflow:scroll; border-radius: 20px;"
+                    frameborder=".2"></iframe>
+            </div>
+            <div id="events" class="inactive">
+                <iframe src="./events/events.html"
                     style="position: relative; height: 100%; width: 100%; overflow:scroll; border-radius: 20px;"
                     frameborder=".2"></iframe>
             </div>
