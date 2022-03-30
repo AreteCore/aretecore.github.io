@@ -2,6 +2,8 @@
 //https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html
 //farmers market data
 //
+//https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=90210
+//
 //global lat long variables because getCurrentPostion is a one-trick pony
 let lat
 let long
