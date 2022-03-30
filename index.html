@@ -36,15 +36,13 @@
             <div class="links">
                 <a id="home-link" href="#">🏚 Home.</a>
                 <a id="youtube-link" href="#">🎥 YouTube: CLI in 3mins</a>
-                <a id="temp-link" href="#">🌡 Temperature Converter</a>
+                <a id="temp-link" href="#">🌡 Temp. Converter</a>
                 <a id="rock-paper-scissors-link" href="#">🪨 Rock, Paper, Scissors</a>
                 <a id="weather-link" href="#">🌧 Openweathermaps API!</a>
                 <a id="nasa-link" href="#">👽 NASA API!</a>
+                <a id="farmers-link" href="#">🥦 Farmers Markets API!</a>
                 <a id="events-link" href="#">🎤 EventBrite API!</a>
             </div>
-        </div>
-        <div class="dadjoke">
-
         </div>
     </div>
     <div class="contentarea">
@@ -89,33 +87,38 @@
             </div>
         </div>
         <div class="frame">
-            <!-- <div class="old inactive">
-                <div class="banners">
-                    <p>Here is a list of stuff I have been working on.</p>
-                </div>
-                <ul>
-                    <li>Check out my dev-related blog <a href="https://dev.to/aretecore">here at dev.to!</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=v5tKk4ye9nY">YouTube: Command Line Basics in 3
-                            minutes</a></li>
-                    <li><a href="./tempconverter/index.html">Temperature Converter (HTML, CSS, JavaScript)</a></li>
-                    <li><a href="https://codepen.io/aretecore/pen/podEQLV">Rock, Paper, Scissors in CodePen (HTML, CSS,
-                            JavaScript)</a></li>
-                    <li><a href="./weather-api/index.html">Here is some fun stuff with the openweathermaps API!</a></li>
-                    <li><a href="./nasa-api/nasa.html">Here is some fun stuff with the NASA API!</a></li>
-                </ul>
-
-                <sub>(it is a short list)</sub>
-                <img src="./img/toasty.png" id="forden" alt="Dan Forden">
-            </div> -->
             <div id="home" class="">
                 <br>
-                <h3>Hello. Welcome to my site. It now has equal amounts of both stuff and things.</h3>
-                <h3>Please click the links above to see things. :-)</h3>
+                <h4>Hello. Welcome to my site. It now has equal amounts of both stuff and things. Please click the links
+                    above to see things. :-)</h4>
+                <button id="dadjoke">BUT FIRST, A TERRIBLE JOKE!</button> <span>(Click here. Uses the icanhazdadjoke
+                    API.)</span>
                 <br>
-                <button id="dadjoke">BUT FIRST, A TERRIBLE JOKE!</button> <span>(Uses the dad joke API)</span>
                 <br>
-                <br>
-                <h3 class="joke"></h3>
+                <div class="joke-container">
+                    <h5 id="joke">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusamus earum
+                        animi iusto minus aperiam? Consequuntur eaque blanditiis totam, fuga corporis cumque rem
+                        praesentium quis. Animi totam autem quam unde.</h5>
+                </div>
+                <p><em>In the navbar above the last four links are API links!</em></p>
+                <ul>
+                    <li>openWeatherMaps API</li>
+                    <p>Has a single day forecast and a seven day forecast.</p>
+                    <li>NASA API!</li>
+                    <p>That uses the APOD or Astronomy Picture of the Day API. It displays three photos that will open
+                        up into larger photos in another tab if you click on them.</p>
+                    <li>Farmers Market API!</li>
+                    <p>This queries a government farmers market database that kinda sucks. It returns a string that has
+                        the miles away at the beginning and name of the event at the end. Like this: <em>2.4 Downtown
+                            Los Angeles Farmers Market</em> Using this API required parsing the strings to get those
+                        values separated, and I also generated an anchor tag that auto-fills a google search with the
+                        name of the event because there is no URL or any other information included.</p>
+                    <li>eventBrite API</li>
+                    <p>Unfortunately for me, I did a bunch of work to parse a sample object and then found out at the
+                        end that this was a deprecated (no longer existing) API. So I use a demo object to demonstrate
+                        it.</p>
+                </ul>
+
             </div>
             <div id="youtube" class="inactive">
                 <iframe style="position: relative; height: 100%; width: 100%; border-radius: 20px;"
@@ -144,6 +147,11 @@
             </div>
             <div id="nasa" class="inactive">
                 <iframe src="./nasa-api/nasa.html"
+                    style="position: relative; height: 100%; width: 100%; overflow:scroll; border-radius: 20px;"
+                    frameborder=".2"></iframe>
+            </div>
+            <div id="farmers" class="inactive">
+                <iframe src="./farmers-market/farmers-market.html"
                     style="position: relative; height: 100%; width: 100%; overflow:scroll; border-radius: 20px;"
                     frameborder=".2"></iframe>
             </div>

@@ -19,8 +19,6 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" defer></script>
     <!-- api keys config  -->
     <script type='text/javascript' src='../config.js' defer></script>
-    <!-- eventbrite test object  -->
-    <script type='text/javascript' src="eventbrite_sample_object.js" defer></script>
     <!-- here is my javascript -->
     <script src="script.js" defer></script>
 </head>
@@ -29,25 +27,12 @@
     <div class="contentarea">
         <div class="main">
             <div class="event">
-                <p>Choose a radius of events to show for your area:</p>
-                <select name="radius_select" id="radius">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                </select>
-                <span> miles</span>
-                <button id="event-button">Show me events!</button>
-                <span>in the next </span>
-                <select name="time_window" id="days-away">
-                    <option value="30">30</option>
-                    <option value="60">60</option>
-                    <option value="90">90</option>
-                </select>
-                <span> days.</span>
-                <!-- <button class="testbutton">testing button</button> -->
+                <p>Find Farmers Markets in your area!</p>
+                <input type="text" name="zip-code" id="zip-input" value="90210">
+                <button id="zip-button">Search by Zip Code!</button>
+                <span> or click here to search by your location: </span>
+                <button id="geo-button" disabled>Search by Location</button>
+                <p id="button-tag" style="font-size: .8em;">(button enables in 8 secs)</p>
                 <div id="events">
                     <!-- stuff populates here -->
                 </div>

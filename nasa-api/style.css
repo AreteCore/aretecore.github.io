@@ -10,7 +10,8 @@ body {
 /* weights are 140 270 and 535 */
 
 .bggradient {
-    background-image: linear-gradient(to bottom right,rgb(46, 46, 46), rgb(142, 142, 142));
+    /* background-image: linear-gradient(to bottom right,rgb(46, 46, 46), rgb(142, 142, 142)); */
+    background: hsl(240, 2%, 13%);
 }
 
 .contentarea { 
@@ -131,6 +132,7 @@ hr {
     justify-content: space-between;
     /* flex-basis: 30%; */
     gap: 20px;
+    justify-content: center;
     
 }
 

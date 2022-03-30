@@ -1,86 +1,97 @@
+//
 //https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html
-//farmers marrket data
+//farmers market data
+//
+//global lat long variables because getCurrentPostion is a one-trick pony
+let lat
+let long
 
+//waits to enable geolocation button, gives getCurrentPosition time to acquire
+setTimeout(() => { $('#geo-button').removeAttr('disabled'); }, 8000);
+setTimeout(() => { $('#button-tag').hide(); }, 8000);
 
+//zip code button
+$("#zip-button").on("click", () => {
+    //checks for valid input
+    if (!zipInputCheck()) {
+        alert("Enter a five-digit zip code!")
+        return
+    } else {
+        //gets zip input
+        let zip = $("#zip-input").val()
+        //runs call
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            // submit a get request to the restful service zipSearch
+            url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
+            dataType: 'jsonp',
+            jsonpCallback: 'parseResults'
+        });
+    }
+})
 
-
-
-//--------------------------------------------------
-// click to run the whole thing
-$("#event-button").on("click", () => {
-    //sets global location variables on click
+//gps button
+$("#geo-button").on("click", () => {
     // navigator.geolocation.getCurrentPosition(geo.success, geo.error, geo.options)
-    //this is the testObject demo version
-    console.log("testObj fires")
-    eventResultsPagerator(testObject)
+    console.log(lat, long)
+    $.ajax({
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        // submit a get request to the restful service locSearch.
+        url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/locSearch?lat=${lat}&lng=${long}`,
+        dataType: 'jsonp',
+        jsonpCallback: 'parseResults'
+    });
 });
 
-//this function actually builds the page sections
-function eventResultsPagerator(response) {
-    // console.log("obj", response)
-    $("#events").text("")
-    for (let element of response.results) {
-        if (element.ticket_availability.has_available_tickets === false) {
-            console.log("nope");
-            return
-        }
-        else {
-            //create container div for event
-            let $eventStyling = $("<div>")
-            $eventStyling.attr("class", "event-styling")
+//validates zip code input
+function zipInputCheck() {
+    if ($("#zip-input").val().length == 5 && parseInt($("#zip-input").val()) != NaN) return true
+    else return false
+}
 
-            //create title h3
-            let $eventName = $("<h3>")
-            $eventName.attr("class", "event-name")
-            $eventName.text(element.name)
-            //append to container
-            $eventStyling.append($eventName)
-
-            //create venue h5
-            let $eventVenue = $("<h5>")
-            $eventVenue.attr("class", "event-name")
-            $eventVenue.text(element.primary_venue.name)
-            //append to container
-            $eventStyling.append($eventVenue)
-
-            //create dates div
-            let $dates = $("<div>")
-            $dates.text(`Event dates: ${element.start_date} to ${element.end_date}`)
-            $eventStyling.append($dates)
-
-            //create body
-            let $eventBody = $("<div>")
-            $eventBody.attr("class", "event-body")
-
-            //create url 1
-            let $url1 = $("<div>")
-            $url1.html(`<a href="${element.tickets_url}">Buy tickets here!</a>`)
-            $eventStyling.append($url1)
-            //append url1 to body
-            $eventBody.append($url1)
-
-            //create url 2
-            let $url2 = $("<div>")
-            $url2.html(`<a href="${element.url}">Event information</a>`)
-            $eventStyling.append($url2)
-            //append url2 to body
-            $eventBody.append($url2)
-
-            //append links
-            $eventStyling.append($eventBody)
-
-            //create summary at the bottom
-            let $div = $("<div>")
-            $div.text(element.summary)
-            $div.attr("class", "summary")
-
-            //append to container
-            $eventStyling.append($div)
-
-            //append entire thing to main
-            $("#events").append($eventStyling)
-        }
+//parses
+function parseResults(data) {
+    //clears events in case this is a second search
+    $("#events").empty()
+    //iterate array, parses miles and name
+    for (let element of data.results) {
+        let miles = element.marketname.slice(0, 3)
+        let name = element.marketname.slice(4, element.marketname.length)
+        //call event builder to make the html
+        eventBuilder(miles, name)
     }
+}
+
+//this generates the html object that gets appended to "events" div
+function eventBuilder(miles, name) {
+    // http://www.google.com/search?q=query+goes+here
+    let $eventStyling = $("<div>")
+    $eventStyling.attr("class", "event-styling")
+
+    // create miles h3
+    let $eventMiles = $("<h3>")
+    $eventMiles.attr("class", "event-name")
+    $eventMiles.text(`${miles} miles away.`)
+    //append to container
+    $eventStyling.append($eventMiles)
+
+    //create link
+    let $link = $("<a>")
+    $link.attr("href", `http://www.google.com/search?q=${name.replace(' ', '+')}`)
+    $link.attr("target", "_blank")
+    $link.text(name)
+
+    //create event h5
+    let $eventName = $("<h5>")
+    $eventName.attr("class", "event-name")
+    $eventName.append($link)
+    //append to container
+    $eventStyling.append($eventName)
+
+    //append entire thing to main
+    $("#events").append($eventStyling)
 }
 
 //geo object holds the functions used by getCurrentPosition to set the global lat long vars etc
@@ -107,62 +118,5 @@ let geo = {
     }
 }
 
-//returns parsed radius from user form
-function radius() {
-    return parseInt($("#radius").val())
-}
-
-//returns formatted string for api call for today
-function today() {
-    const today = new Date()
-    return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
-}
-
-//returns formatted string for api call for future date
-function daysAway() {
-    const daysAway = new Date()
-    daysAway.setDate(new Date().getDate() + parseInt($("#days-away").val()))
-    return `${daysAway.getFullYear()}-${daysAway.getMonth() + 1}-${daysAway.getDate()}`
-}
-
-//test button
-$(".testbutton").on("click", () => {
-    console.log("test button fire")
-    // console.log("geo")
-    // navigator.geolocation.getCurrentPosition(geo.parseLatLong, geo.error, geo.options);
-    // eventResultsPagerator(testObject)
-    // console.log(today(), daysAway())
-    
-    navigator.geolocation.getCurrentPosition(
-        geo.success,
-        geo.error,
-        geo.options
-    )
-    console.log("coords",lat,long)
-})
-
-// this is the event button to use if the api actually works
-// which it does not, because its deprecated, because eventbrite sucks
-// $("#event-button").on("click", () => {
-//     // this is the url example from the settings object
-//     //"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
-//     //sets global location variables on click
-//     navigator.geolocation.getCurrentPosition(geo.success, geo.error, geo.options)
-//     //this is a settings object for the api, **must be declared here in the click to pull current data/dropdowns/location!**
-//     const settings = {
-//         "async": true,
-//         "crossDomain": true,
-//         "url": `https://eventbrite-com.p.rapidapi.com/events/nearby/${lat}/${long}?radius=${radius()}&date_start=${today()}&date_end=${daysAwayString}&page=1`,
-//         "method": "GET",
-//         "headers": {
-//             "X-RapidAPI-Host": "eventbrite-com.p.rapidapi.com",
-//             "X-RapidAPI-Key": eventBriteKey
-//         }
-//     }
-//     //this is the ajax call to the api, if it worked
-//     console.log("ajax fires")
-//     $.ajax(settings).done(function (response) {
-//         //function creates the page
-//         eventResultsPagerator(response);
-//     });
-// });
+//gets curret position on page load
+navigator.geolocation.getCurrentPosition(geo.success, geo.error, geo.options)

@@ -1,14 +1,10 @@
 const $code = $("#code")
 const $dadJoke = $("#dadjoke")
-// console.log($code)
-var toasty = new Audio('./wav/toasty.wav');
+const toasty = new Audio('./wav/toasty.wav');
 const $forden = $("#forden")
-// $forden.hide()
-// console.log($forden[0].style)
 
 //matches height to bio
 $(".frame").height($(".bio").outerHeight())
-// $('.frame').css({"maxHeight":$(".bio").height()});
 
 
 $code.on("click", (event) => {
@@ -27,6 +23,7 @@ $code.on("click", (event) => {
 
 //dadjoke onclick function
 $dadJoke.on("click", (event) => {
+    // $(".joke-container").css("display","none")
     $.ajax({
         url:`https://icanhazdadjoke.com/`,
         // type: 'POST',
@@ -34,21 +31,21 @@ $dadJoke.on("click", (event) => {
         processData: false
     }).then((data) => {
         // console.log(data.joke)
-        $(".joke").text(data.joke)
+        $("#joke").text(data.joke)
+        $(".joke-container").css("display","block")
     })
 })
 
-
+//loads the quote of the day
 $(document).ready(function () {
     console.log("loaded!")
     $.ajax(`https://quotes.rest/qod?language=en`).then((data) => {
-        // console.log("quote", data.contents.quotes[0].quote)
-        // console.log("author", data.contents.quotes[0].author)
         $("#quote").text(`"${data.contents.quotes[0].quote}" - ${data.contents.quotes[0].author}`)
     })
 
 });
 
+//nav click listeners
 $("#home-link").on("click", () => {
     console.log("youtube bang")
     $(".frame").children().addClass("inactive")
@@ -76,33 +73,38 @@ $("#nasa-link").on("click", () => {
     $(".frame").children().addClass("inactive")
     $("#nasa").toggleClass("inactive")
 })
+$("#farmers-link").on("click", () => {
+    $(".frame").children().addClass("inactive")
+    $("#farmers").toggleClass("inactive")
+})
 $("#events-link").on("click", () => {
     $(".frame").children().addClass("inactive")
     $("#events").toggleClass("inactive")
 })
 
-const $nasaButton = $("#nasa-button")
-$nasaButton.on("click", () => {})
-{
-    $.ajax(`https://api.nasa.gov/planetary/apod?count=3&api_key=9jBnAysOQFWacuExLUatq5NmxXIgdJqdleT3ibXP`).then((data) => {
-        // console.log(data)
-        $("#nasa-photos").html("")
-        data.forEach((item) => {
-            //this "<div>" is a jquery thing, it will understand that it needs both opening and closing
-            const $div = $("<div>")
-            //create p
-            const $p = $(`<p>${item.title}</p>`)
-            const $a = $(`<a target="_blank" href="${item.hdurl}">`)
-            // const $img = $(`<img src=${item.url} alt=${item.title}/>`)
-            const $img = $("<img/>")
-            $img.attr("src", item.url)
-            $img.attr("alt", item.title)
-            $a.append($img)
-            $div.append($p, $a)
-            //appends it to the aside
-            $("#nasa-photos").append($div)
-        })
-    }).catch((error) => {
-        console.log("b0rk:", error)
-    })
-}
+//i dont think i need this
+// const $nasaButton = $("#nasa-button")
+// $nasaButton.on("click", () => {})
+// {
+//     $.ajax(`https://api.nasa.gov/planetary/apod?count=3&api_key=9jBnAysOQFWacuExLUatq5NmxXIgdJqdleT3ibXP`).then((data) => {
+//         // console.log(data)
+//         $("#nasa-photos").html("")
+//         data.forEach((item) => {
+//             //this "<div>" is a jquery thing, it will understand that it needs both opening and closing
+//             const $div = $("<div>")
+//             //create p
+//             const $p = $(`<p>${item.title}</p>`)
+//             const $a = $(`<a target="_blank" href="${item.hdurl}">`)
+//             // const $img = $(`<img src=${item.url} alt=${item.title}/>`)
+//             const $img = $("<img/>")
+//             $img.attr("src", item.url)
+//             $img.attr("alt", item.title)
+//             $a.append($img)
+//             $div.append($p, $a)
+//             //appends it to the aside
+//             $("#nasa-photos").append($div)
+//         })
+//     }).catch((error) => {
+//         console.log("b0rk:", error)
+//     })
+// }

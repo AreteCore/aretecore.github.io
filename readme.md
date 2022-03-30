@@ -13,9 +13,9 @@
 
 Problem: My personal site is not very robust. Time to change that. This will be a good example of basic skills I can show to potential employers. 
 
-On the main page, there will be a quote of the day displayed above the nav bar at the top of the screen, using the https://quotes.rest/ API.
+On the main page, there will be a quote of the day displayed above the nav bar at the top of the screen, using the https://quotes.rest/ API and a cheesy Dad joke API in the middle of the main page.
 
-In sub sections there will be some work with other APIs, namely one I did with the NASA API and the project for the weather API with the bonus completed.
+In sub sections there will be some work with other APIs, namely one I did with the NASA API and the project for the weather API with the bonus completed, also there is a section that parses farmers market locations from a government API and an EventBrite API (that is unfortunately deprecated but the demo still works with a sample object!)
 
 ## Technologies Used
 - HTML
@@ -38,3 +38,10 @@ List of stories users can experience on my site.
 ## User Interface Mockups
 
 ![Wireframe](./img/wireframe.png)
+
+## Site Screenshots
+
+![Main](./img/main.png)
+![NASA](./img/nasa.png)
+![Farmers Market](./img/farmersmarket.png)
+![EventBrite](./img/eventbrite.png)
