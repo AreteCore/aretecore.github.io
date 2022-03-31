@@ -146,26 +146,26 @@ $(".testbutton").on("click", () => {
 
 // this is the event button to use if the api actually works
 // which it does not, because its deprecated, because eventbrite sucks
-// $("#event-button").on("click", () => {
-//     // this is the url example from the settings object
-//     //"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
-//     //sets global location variables on click
-//     navigator.geolocation.getCurrentPosition(geo.success, geo.error, geo.options)
-//     //this is a settings object for the api, **must be declared here in the click to pull current data/dropdowns/location!**
-//     const settings = {
-//         "async": true,
-//         "crossDomain": true,
-//         "url": `https://eventbrite-com.p.rapidapi.com/events/nearby/${lat}/${long}?radius=${radius()}&date_start=${today()}&date_end=${daysAwayString}&page=1`,
-//         "method": "GET",
-//         "headers": {
-//             "X-RapidAPI-Host": "eventbrite-com.p.rapidapi.com",
-//             "X-RapidAPI-Key": eventBriteKey
-//         }
-//     }
-//     //this is the ajax call to the api, if it worked
-//     console.log("ajax fires")
-//     $.ajax(settings).done(function (response) {
-//         //function creates the page
-//         eventResultsPagerator(response);
-//     });
-// });
+$("#deprecated-event-button").on("click", () => {
+    // this is the url example from the settings object
+    //"url": "https://eventbrite-com.p.rapidapi.com/events/nearby/37.788719679657554/-122.40057774847898?radius=30&date_start=2021-01-01&date_end=2021-12-31&page=1",
+    //sets global location variables on click
+    navigator.geolocation.getCurrentPosition(geo.success, geo.error, geo.options)
+    //this is a settings object for the api, **must be declared here in the click to pull current data/dropdowns/location!**
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://eventbrite-com.p.rapidapi.com/events/nearby/${lat}/${long}?radius=${radius()}&date_start=${today()}&date_end=${daysAwayString}&page=1`,
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Host": "eventbrite-com.p.rapidapi.com",
+            "X-RapidAPI-Key": eventBriteKey
+        }
+    }
+    //this is the ajax call to the api, if it worked
+    console.log("ajax fires")
+    $.ajax(settings).done(function (response) {
+        //function creates the page
+        eventResultsPagerator(response);
+    });
+});

@@ -26,7 +26,7 @@ $("#zip-button").on("click", () => {
             type: "GET",
             contentType: "application/json; charset=utf-8",
             // submit a get request to the restful service zipSearch
-            url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
+            url: `https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
             dataType: 'jsonp',
             jsonpCallback: 'parseResults'
         });
