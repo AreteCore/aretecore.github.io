@@ -4,7 +4,7 @@
 // https://www.eventbrite.com/platform/docs/by-location
 
 // keys
-const eventBriteKey = config.EVENTBRITE_KEY
+// const eventBriteKey = config.EVENTBRITE_KEY
 //global vars (needed because of getCurrentPosition not being cool at all)
 let lat
 let long
