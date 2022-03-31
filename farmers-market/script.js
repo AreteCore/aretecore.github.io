@@ -41,7 +41,7 @@ $("#geo-button").on("click", () => {
         type: "GET",
         contentType: "application/json; charset=utf-8",
         // submit a get request to the restful service locSearch.
-        url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/locSearch?lat=${lat}&lng=${long}`,
+        url: `https://search.ams.usda.gov/farmersmarkets/v1/data.svc/locSearch?lat=${lat}&lng=${long}`,
         dataType: 'jsonp',
         jsonpCallback: 'parseResults'
     });
