@@ -19,6 +19,8 @@ body {
 
 /* weights are 140 270 and 535 */
 
+
+
 .bggradient {
     background-image: linear-gradient(to bottom right,rgb(46, 46, 46), rgb(142, 142, 142));
     padding: 2em;
@@ -249,10 +251,14 @@ li::before {
       padding-left: 1em;
       /* padding-top: .5em; */
   }
-
+#dadjoke {
+    padding: .5em;
+    border-radius:8px;
+    background-color: var(--bg-gradient-onyx);
+    color: white;
+    font-weight: bold;
+}
   #joke {
-
-  
       margin: 0;
       padding: 0;
       width: 100%;

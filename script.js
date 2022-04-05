@@ -6,7 +6,6 @@ const $forden = $("#forden")
 //matches height to bio
 $(".frame").height($(".bio").outerHeight())
 
-
 $code.on("click", (event) => {
     //play sound
     toasty.play()
@@ -45,66 +44,53 @@ $(document).ready(function () {
 
 });
 
-//nav click listeners
-$("#home-link").on("click", () => {
-    console.log("youtube bang")
-    $(".frame").children().addClass("inactive")
-    $("#home").toggleClass("inactive")
-})
+//need to create a loop that assigns event listeners to the nav bar with class links
+//listeners toggle class inactive in the divs downstairs, they have IDs that match
+//the data-nav tags
+let links = $(".links").children()
+for (let link of links) {
+    let navID = $(link).attr("data-nav")
+    $(link).on("click", () => {s
+        $(".frame").children().addClass("inactive")
+        $(`#${navID}`).toggleClass("inactive")
+    })
+}
 
-$("#youtube-link").on("click", () => {
-    console.log("youtube bang")
-    $(".frame").children().addClass("inactive")
-    $("#youtube").toggleClass("inactive")
-})
-$("#temp-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#temp").toggleClass("inactive")
-})
-$("#rock-paper-scissors-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#rock-paper-scissors").toggleClass("inactive")
-})
-$("#weather-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#weather").toggleClass("inactive")
-})
-$("#nasa-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#nasa").toggleClass("inactive")
-})
-$("#farmers-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#farmers").toggleClass("inactive")
-})
-$("#events-link").on("click", () => {
-    $(".frame").children().addClass("inactive")
-    $("#events").toggleClass("inactive")
-})
 
-//i dont think i need this
-// const $nasaButton = $("#nasa-button")
-// $nasaButton.on("click", () => {})
-// {
-//     $.ajax(`https://api.nasa.gov/planetary/apod?count=3&api_key=9jBnAysOQFWacuExLUatq5NmxXIgdJqdleT3ibXP`).then((data) => {
-//         // console.log(data)
-//         $("#nasa-photos").html("")
-//         data.forEach((item) => {
-//             //this "<div>" is a jquery thing, it will understand that it needs both opening and closing
-//             const $div = $("<div>")
-//             //create p
-//             const $p = $(`<p>${item.title}</p>`)
-//             const $a = $(`<a target="_blank" href="${item.hdurl}">`)
-//             // const $img = $(`<img src=${item.url} alt=${item.title}/>`)
-//             const $img = $("<img/>")
-//             $img.attr("src", item.url)
-//             $img.attr("alt", item.title)
-//             $a.append($img)
-//             $div.append($p, $a)
-//             //appends it to the aside
-//             $("#nasa-photos").append($div)
-//         })
-//     }).catch((error) => {
-//         console.log("b0rk:", error)
-//     })
-// }
+
+//old nav click listeners
+// $("#home-link").on("click", () => {
+//     console.log("youtube bang")
+//     $(".frame").children().addClass("inactive")
+//     $("#home").toggleClass("inactive")
+// })
+
+// $("#youtube-link").on("click", () => {
+//     console.log("youtube bang")
+//     $(".frame").children().addClass("inactive")
+//     $("#youtube").toggleClass("inactive")
+// })
+// $("#temp-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#temp").toggleClass("inactive")
+// })
+// $("#rock-paper-scissors-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#rock-paper-scissors").toggleClass("inactive")
+// })
+// $("#weather-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#weather").toggleClass("inactive")
+// })
+// $("#nasa-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#nasa").toggleClass("inactive")
+// })
+// $("#farmers-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#farmers").toggleClass("inactive")
+// })
+// $("#events-link").on("click", () => {
+//     $(".frame").children().addClass("inactive")
+//     $("#events").toggleClass("inactive")
+// })
