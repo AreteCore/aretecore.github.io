@@ -44,21 +44,21 @@ $(document).ready(function () {
 
 });
 
+
+
 //need to create a loop that assigns event listeners to the nav bar with class links
 //listeners toggle class inactive in the divs downstairs, they have IDs that match
 //the data-nav tags
 let links = $(".links").children()
 for (let link of links) {
     let navID = $(link).attr("data-nav")
-    $(link).on("click", () => {s
+    $("#events-link").on("click", () => {
         $(".frame").children().addClass("inactive")
         $(`#${navID}`).toggleClass("inactive")
     })
 }
 
-
-
-//old nav click listeners
+//nav click listeners
 // $("#home-link").on("click", () => {
 //     console.log("youtube bang")
 //     $(".frame").children().addClass("inactive")
