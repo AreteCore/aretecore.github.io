@@ -52,7 +52,7 @@ $(document).ready(function () {
 let links = $(".links").children()
 for (let link of links) {
     let navID = $(link).attr("data-nav")
-    $("#events-link").on("click", () => {
+    $(`#${link}`).on("click", () => {
         $(".frame").children().addClass("inactive")
         $(`#${navID}`).toggleClass("inactive")
     })
