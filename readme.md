@@ -7,7 +7,7 @@
 | Description | This site will be an example of several technologies I am familiar with. |
 | Developers | Rich Clarke |
 | Live Website | https://richclarke0.github.io |
-| Repo | https://www.github.com/richclarke0/frontend-project/ |
+<!-- | Repo | https://www.github.com/richclarke0/frontend-project/ | -->
 
 ## Problem Being Solved and Target Market
 
